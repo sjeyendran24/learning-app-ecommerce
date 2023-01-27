@@ -21,8 +21,10 @@ sudo systemctl enable firewalld
 ```
 sudo yum install -y mariadb-server
 sudo vi /etc/my.cnf
-sudo service mariadb start
+sudo systemctlstart  mariadb
 sudo systemctl enable mariadb
+
+sudo yum install mariadb-server ; sudo systemctl start mariadb ; sudo systemctl enable mariadb ; sudo systemctl status mariadb
 ```
 
 2. Configure firewall for Database
@@ -87,8 +89,9 @@ sudo sed -i 's/index.html/index.php/g' /etc/httpd/conf/httpd.conf
 3. Start httpd
 
 ```
-sudo service httpd start
+sudo systemctl start httpd 
 sudo systemctl enable httpd
+sudo systemctl status httpd
 ```
 
 4. Download code
@@ -103,6 +106,7 @@ git clone https://github.com/kodekloudhub/learning-app-ecommerce.git /var/www/ht
 Update [index.php](https://github.com/kodekloudhub/learning-app-ecommerce/blob/13b6e9ddc867eff30368c7e4f013164a85e2dccb/index.php#L107) file to connect to the right database server. In this case `localhost` since the database is on the same server.
 
 ```
+sudo dbserver=db
 sudo sed -i 's/172.20.1.101/localhost/g' /var/www/html/index.php
 
               <?php
