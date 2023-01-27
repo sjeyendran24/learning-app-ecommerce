@@ -10,7 +10,7 @@ Here's how to deploy it on CentOS systems:
 
 ```
 sudo yum install -y firewalld
-sudo service firewalld start
+sudo systemctl start firewalld
 sudo systemctl enable firewalld
 ```
 
